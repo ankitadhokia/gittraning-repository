@@ -1,0 +1,336 @@
+# Schema for the configuration files of the Bootstrap Barrio Subtheme.
+
+barrio_custom_theme.settings:
+  type: theme_settings
+  label: 'Bootstrap Barrio settings'
+  mapping:
+
+    # Library.
+    # ----------------------------
+    barrio_custom_theme_library:
+      type: string
+      label: 'Load library'
+    barrio_custom_theme_source:
+      type: string
+      label: 'Load library'
+
+    # Container.
+    # ----------------------------
+    barrio_custom_theme_fluid_container:
+      type: integer
+      label: 'Fluid container'
+
+    # Region.
+    # ----------------------------
+    barrio_custom_theme_region_clean_top_header:
+      type: integer
+      label: 'Clean wrapper for Top header region'
+    barrio_custom_theme_region_class_top_header:
+      type: string
+      label: 'Classes for Top header region'
+    barrio_custom_theme_region_clean_top_header_form:
+      type: integer
+      label: 'Clean wrapper for Top header form region'
+    barrio_custom_theme_region_class_top_header_form:
+      type: string
+      label: 'Classes for Top header form region'
+    barrio_custom_theme_region_clean_header:
+      type: integer
+      label: 'Clean wrapper for Header region'
+    barrio_custom_theme_region_class_header:
+      type: string
+      label: 'Classes for Header region'
+    barrio_custom_theme_region_clean_header_form:
+      type: integer
+      label: 'Clean wrapper for Header form region'
+    barrio_custom_theme_region_class_header_form:
+      type: string
+      label: 'Classes for Header form region'
+    barrio_custom_theme_region_clean_primary_menu:
+      type: integer
+      label: 'Clean wrapper for Primary menu region'
+    barrio_custom_theme_region_class_primary_menu:
+      type: string
+      label: 'Classes for Primary menu region'
+    barrio_custom_theme_region_clean_secondary_menu:
+      type: integer
+      label: 'Clean wrapper for Secondary menu region'
+    barrio_custom_theme_region_class_secondary_menu:
+      type: string
+      label: 'Classes for Secondary menu region'
+    barrio_custom_theme_region_clean_page_top:
+      type: integer
+      label: 'Clean wrapper for Page top region'
+    barrio_custom_theme_region_class_page_top:
+      type: string
+      label: 'Classes for Page top region'
+    barrio_custom_theme_region_clean_page_bottom:
+      type: integer
+      label: 'Clean wrapper for Page bottom region'
+    barrio_custom_theme_region_class_page_bottom:
+      type: string
+      label: 'Classes for Page bottom region'
+    barrio_custom_theme_region_clean_highlighted:
+      type: integer
+      label: 'Clean wrapper for Highlighted region'
+    barrio_custom_theme_region_class_highlighted:
+      type: string
+      label: 'Classes for Highlighted region'
+    barrio_custom_theme_region_clean_featured_top:
+      type: integer
+      label: 'Clean wrapper for Featured top region'
+    barrio_custom_theme_region_class_featured_top:
+      type: string
+      label: 'Classes for Featured top region'
+    barrio_custom_theme_region_clean_breadcrumb:
+      type: integer
+      label: 'Clean wrapper for Breadcrumb region'
+    barrio_custom_theme_region_class_breadcrumb:
+      type: string
+      label: 'Classes for Breadcrumb region'
+    barrio_custom_theme_region_clean_content:
+      type: integer
+      label: 'Clean wrapper for Content region'
+    barrio_custom_theme_region_class_content:
+      type: string
+      label: 'Classes for Content region'
+    barrio_custom_theme_region_clean_sidebar_first:
+      type: integer
+      label: 'Clean wrapper for Sidebar first region'
+    barrio_custom_theme_region_class_sidebar_first:
+      type: string
+      label: 'Classes for Sidebar first region'
+    barrio_custom_theme_region_clean_sidebar_second:
+      type: integer
+      label: 'Clean wrapper for Sidebar second region'
+    barrio_custom_theme_region_class_sidebar_second:
+      type: string
+      label: 'Classes for Sidebar second region'
+    barrio_custom_theme_region_clean_featured_bottom_first:
+      type: integer
+      label: 'Clean wrapper for Featured bottom first region'
+    barrio_custom_theme_region_class_featured_bottom_first:
+      type: string
+      label: 'Classes for Featured bottom first region'
+    barrio_custom_theme_region_clean_featured_bottom_second:
+      type: integer
+      label: 'Clean wrapper for Featured bottom second region'
+    barrio_custom_theme_region_class_featured_bottom_second:
+      type: string
+      label: 'Classes for Featured bottom second region'
+    barrio_custom_theme_region_clean_featured_bottom_third:
+      type: integer
+      label: 'Clean wrapper for Featured bottom third region'
+    barrio_custom_theme_region_class_featured_bottom_third:
+      type: string
+      label: 'Classes for Featured bottom third region'
+    barrio_custom_theme_region_clean_footer_first:
+      type: integer
+      label: 'Clean wrapper for Footer first region'
+    barrio_custom_theme_region_class_footer_first:
+      type: string
+      label: 'Classes for Footer first region'
+    barrio_custom_theme_region_clean_footer_second:
+      type: integer
+      label: 'Clean wrapper for Footer second region'
+    barrio_custom_theme_region_class_footer_second:
+      type: string
+      label: 'Classes for Footer second region'
+    barrio_custom_theme_region_clean_footer_third:
+      type: integer
+      label: 'Clean wrapper for Footer third region'
+    barrio_custom_theme_region_class_footer_third:
+      type: string
+      label: 'Classes for Footer third region'
+    barrio_custom_theme_region_clean_footer_fourth:
+      type: integer
+      label: 'Clean wrapper for Footer fourth region'
+    barrio_custom_theme_region_class_footer_fourth:
+      type: string
+      label: 'Classes for Footer fourth region'
+    barrio_custom_theme_region_clean_footer_fifth:
+      type: integer
+      label: 'Clean wrapper for Footer fifth region'
+    barrio_custom_theme_region_class_footer_fifth:
+      type: string
+      label: 'Classes for Footer fifth region'
+
+    # Sidebar position.
+    # ----------------------------
+    barrio_custom_theme_sidebar_position:
+      type: string
+      label: 'Sidebar position'
+    barrio_custom_theme_content_offset:
+      type: integer
+      label: 'Content offset'
+
+    # Sidebar first layout.
+    # ----------------------------
+    barrio_custom_theme_sidebar_collapse:
+      type: integer
+      label: 'Sidebar collapse'
+    barrio_custom_theme_sidebar_first_width:
+      type: integer
+      label: 'Sidebar first width'
+    barrio_custom_theme_sidebar_first_offset:
+      type: integer
+      label: 'Sidebar first offset'
+
+    # Sidebar second layout.
+    # ----------------------------
+    barrio_custom_theme_sidebar_second_width:
+      type: integer
+      label: 'Sidebar second width'
+    barrio_custom_theme_sidebar_second_offset:
+      type: integer
+      label: 'Sidebar second layout'
+
+    # Node.
+    # ----------------------------
+    barrio_custom_theme_hide_node_label:
+      type: integer
+      label: 'Hide node label'
+
+    # Buttons.
+    # ----------------------------
+    barrio_custom_theme_button:
+      type: integer
+      label: 'Convert input submit to button element'
+    barrio_custom_theme_button_size:
+      type: string
+      label: 'Default button size'
+    barrio_custom_theme_button_outline:
+      type: integer
+      label: 'Button with outline format'
+
+    # Navbar.
+    # ----------------------------
+    barrio_custom_theme_navbar_container:
+      type: string
+      label: 'Navbar width container'
+    barrio_custom_theme_navbar_toggle:
+      type: string
+      label: 'Navbar toggle size'
+    barrio_custom_theme_navbar_top_navbar:
+      type: integer
+      label: 'Navbar top is navbar'
+    barrio_custom_theme_navbar_top_class:
+      type: string
+      label: 'Class for navbar top'
+    barrio_custom_theme_navbar_class:
+      type: string
+      label: 'Class for navbar'
+    barrio_custom_theme_navbar_top_position:
+      type: string
+      label: 'Navbar top position'
+    barrio_custom_theme_navbar_top_color:
+      type: string
+      label: 'Navbar top link color'
+    barrio_custom_theme_navbar_top_background:
+      type: string
+      label: 'Navbar top background color'
+    barrio_custom_theme_navbar_position:
+      type: string
+      label: 'Navbar position'
+    barrio_custom_theme_navbar_color:
+      type: string
+      label: 'Navbar link color'
+    barrio_custom_theme_navbar_background:
+      type: string
+      label: 'Navbar background color'
+    barrio_custom_theme_navbar_flyout:
+      type: boolean
+      label: 'Flyout style main menu'
+    barrio_custom_theme_navbar_slide:
+      type: boolean
+      label: 'Sliding navbar'
+    barrio_custom_theme_navbar_offcanvas:
+      type: string
+      label: 'Navbar offcanvas'
+
+    # Messages.
+    # ----------------------------
+    barrio_custom_theme_messages_widget:
+      type: string
+      label: 'Messages widget'
+
+    # Form.
+    # ----------------------------
+    barrio_custom_theme_radio:
+      type: string
+      label: 'Radio widget'
+    barrio_custom_theme_checkbox:
+      type: string
+      label: 'Checkbox widget'
+    barrio_custom_theme_select:
+      type: string
+      label: 'Select widget'
+    barrio_custom_theme_file:
+      type: string
+      label: 'File widget'
+
+    # Affix.
+    # ----------------------------
+    barrio_custom_theme_navbar_top_affix:
+      type: integer
+      label: 'Affix navbar top'
+    barrio_custom_theme_navbar_affix:
+      type: integer
+      label: 'Affix navbar'
+    barrio_custom_theme_sidebar_first_affix:
+      type: integer
+      label: 'Affix sidebar first'
+    barrio_custom_theme_sidebar_second_affix:
+      type: integer
+      label: 'Affix sidebar first'
+
+    # Scrollspy.
+    # ----------------------------
+    barrio_custom_theme_scroll_spy:
+      type: string
+      label: 'Scrollspy element ID'
+
+    # Fonts.
+    # ----------------------------
+    barrio_custom_theme_google_fonts:
+      type: string
+      label: 'Google Fonts combination'
+
+    # Icons.
+    # ----------------------------
+    barrio_custom_theme_bootstrap_icons:
+      type: integer
+      label: 'Use Bootstrap icons'
+    barrio_custom_theme_icons:
+      type: string
+      label: 'Icon set'
+
+    # System messages.
+    # ----------------------------
+    barrio_custom_theme_system_messages:
+      type: string
+      label: 'System messages color scheme'
+
+    # Tables.
+    # ----------------------------
+    barrio_custom_theme_table_style:
+      type: string
+      label: 'Table cell style'
+    barrio_custom_theme_table_hover:
+      type: integer
+      label: 'Hover effect over table cells'
+    barrio_custom_theme_table_head:
+      type: string
+      label: 'Table header color scheme'
+
+    # Image fluid.
+    # ----------------------------
+    barrio_custom_theme_image_fluid:
+      type: boolean
+      label: 'Apply img-fluid style to all content images'
+
+    # Tabs.
+    # ----------------------------
+    barrio_custom_theme_tabs_style:
+      type: string
+      label: 'Tabs style'

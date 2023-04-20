@@ -1,0 +1,8 @@
+users.CreditPersonsForm2:
+  path: '/CreditPersonsForm/add'
+  defaults:
+    _title: 'Add CreditPersonsForm'
+    _form: 'Drupal\users\Form\CreditPersonsForm'
+  requirements:
+    _permission: 'access content'
+  

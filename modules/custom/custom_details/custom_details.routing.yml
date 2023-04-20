@@ -1,0 +1,7 @@
+custom_details.myroute:
+  path: '/statistics/{node_id}'
+  defaults:
+    _controller: '\Drupal\custom_details\Controller\MyController::displayStatistics'
+    _title: 'My Page Title'
+  requirements:
+    _permission: 'access content'

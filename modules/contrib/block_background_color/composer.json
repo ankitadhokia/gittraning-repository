@@ -1,0 +1,21 @@
+{
+    "name": "drupal/block_background_color",
+    "type": "drupal-module",
+    "description": "Changes the background color of a block.",
+    "license": "GPL-2.0-or-later",
+    "authors": [
+        {
+            "name": "George Anderson (geoanders)",
+            "homepage": "https://www.drupal.org/u/geoanders",
+            "role": "Maintainer"
+        }
+    ],
+    "homepage": "https://drupal.org/project/block_background_color",
+    "support": {
+        "issues": "https://drupal.org/project/issues/block_background_color",
+        "source": "https://git.drupalcode.org/project/block_background_color"
+    },
+    "require": {
+        "drupal/core": "^8 || ^9 || ^10"
+    }
+}

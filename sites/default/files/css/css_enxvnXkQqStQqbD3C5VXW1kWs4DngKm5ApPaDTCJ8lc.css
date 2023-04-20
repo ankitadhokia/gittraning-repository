@@ -1,0 +1,3 @@
+.paragraph--unpublished{background-color:#fff4f4;}
+.layout--fourcol-section{display:flex;flex-wrap:wrap;}.layout--fourcol-section > .layout__region{flex:0 1 100%;}@media screen and (min-width:40em){.layout--fourcol-section > .layout__region{flex:0 1 25%;}}
+.layout--onecol .layout__region{width:100%;}

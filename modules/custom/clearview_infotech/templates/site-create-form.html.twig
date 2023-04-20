@@ -1,0 +1,35 @@
+{{ form.form_build_id }}
+{{ form.form_token }}
+{{ form.form_id }}
+
+<div class="row custom-form m-0 justify-content-center">
+  <div class="col-md-8 form-custom">
+  	<h3>Create Your Pantheon Site</h3>
+  	<div class="form-back">
+  		
+  	<div class="d-flex form-show">
+  		 {{ form.name }}
+         {{ form.domain_name }}
+  	</div>
+  <span class="help-block">Site names cannot be changed once created.</span>
+  <p class="my-3">
+  	<i>
+  		For Service Offerings where customers select a specific region as the data location, Pantheon utilizes a Google Cloud Platform data center located in that region to store all data collected by Subscribers from the End Users.
+  	</i>
+  </p>
+  <div class="row u-margin-top-1">
+  	<div class="col-md-12">
+  		<label>Upstream</label><br>
+  	</div>
+  	<div class="col-md-12">
+        {{form.my_site}}
+</div>
+</div>
+  	</div>
+
+
+   <div class="submit">
+   	{{ form.actions.submit }}
+   </div>
+  </div>
+</div>

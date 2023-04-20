@@ -1,0 +1,20 @@
+/*.field--name-field-our-services-title {
+    text-align: center !important;
+    color: #141515 !important;
+    font-size: 1rem;
+    font-family: "Roboto",sans-serif;
+}*/
+.field--name-field-our-services-title {
+text-align: center ;
+color: #050505 ;
+font-size: 2em;
+font-family: "Times New Roman", Times, serif;
+}
+.field_services_image{
+    border: 0dvb;
+    box-sizing: calc();
+    border-radius: 0cqmax;
+}
+/*.field_banner_paragraph{
+    color: #bb19bb !important;
+}*/

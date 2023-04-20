@@ -1,0 +1,71 @@
+<?php
+/**
+ * Implements hook_install().
+ */
+function custom_details_install() {
+  // Create the custom table.
+  $schema = [
+    'description' => 'Custom table for storing user ID, entity ID, and timestamp.',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+        'description' => 'The primary key for the table.',
+      ],
+      'user_id' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'description' => 'The ID of the user.',
+      ],
+      'entity_id' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'description' => 'The ID of the entity (node or page).',
+      ],
+      'timestamp' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'description' => 'The timestamp of when the entity was viewed.',
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+  $table = Table::create('custom_details_custom_table', $schema);
+  $table->save();
+  
+}
+
+function custom_details_schema() {
+    $schema['custom_details_custom_table'] = array(
+      'description' => 'Custom details table for storing user ID, node ID, and time',
+      'fields' => array(
+        'id' => array(
+          'type' => 'serial',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+        ),
+        'user_id' => array(
+          'type' => 'int',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+          'default' => 0,
+        ),
+        'node_id' => array(
+          'type' => 'int',
+          'unsigned' => TRUE,
+          'not null' => TRUE,
+          'default' => 0,
+        ),
+        'time' => array(
+          'type' => 'int',
+          'not null' => TRUE,
+          'default' => 0,
+        ),
+      ),
+      'primary key' => array('id'),
+    );
+  
+    return $schema;
+  }
+  

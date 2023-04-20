@@ -1,0 +1,19 @@
+<?php
+use Drupal\image\Entity\ImageStyle;
+
+/**
+ * Implements hook_preprocess_node().
+ */
+/*
+function custom_theme_preprocess_node(&$variables) {
+ 
+  $type = $variables['node']->getType();
+   if(($type == 'article') ) {
+   // field_image is a machine name of image field.
+    $id = $variables['node']->field_image->entity->getFileUri();
+    // thumbnail is a machine name of image style e.g: thumbnail. 
+    $url = ImageStyle::load('thumbnail')->buildUrl($id);
+    $variables['image_url'] = $url;
+  
+  }
+}*/

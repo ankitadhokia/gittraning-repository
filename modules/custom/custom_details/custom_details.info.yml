@@ -1,0 +1,5 @@
+name: custom_details
+type: module
+description: 'Stores user ID, node ID, and timestamp when the user views a page or node.'
+package: Custom
+core_version_requirement: ^9

@@ -1,0 +1,33 @@
+<?php
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Session\AccountInterface;
+use Drupal\Core\Logger\LoggerChannelFactoryInterface;
+use Drupal\Core\Datetime\DrupalDateTime;
+use Drupal\Core\Database\Connection;
+
+/**
+ * Implements hook_entity_view().
+ */
+function custom_details_entity_view(array &$build, EntityInterface $entity, $display, $view_mode) {
+  // Check if the entity being viewed is a node.
+  if ($entity->getEntityTypeId() == 'node') {
+    // Get the current user object.
+    $user = \Drupal::currentUser();
+    // Get the current node ID.
+    $node_id = $entity->id();
+    // Get the current timestamp.
+    $time = (new DrupalDateTime())->getTimestamp();
+    // Get the database connection.
+    $database = \Drupal::database();
+    // Insert the data into the custom table.
+   
+    $database->insert('custom_details_custom_table')
+      ->fields([
+        'user_id' => $user->id(),
+        'node_id' => $node_id,
+        'time' => $time,
+      ])
+      ->execute();
+     
+  }
+}

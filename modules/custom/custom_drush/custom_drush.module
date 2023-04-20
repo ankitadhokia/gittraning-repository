@@ -1,0 +1,83 @@
+<?php
+/**
+ * Implements hook_drush_command().
+ */
+function custom_drush_drush_command() {
+  $commands = array();
+
+  // Export command
+  $commands['export-csv'] = array(
+    'description' => 'Export nodes to a CSV file.',
+    'aliases' => array('ec'),
+    'arguments' => array(
+      'filename' => 'public://datacsv',
+    ),
+    'callback' => 'custom_drush_export_csv',
+  );
+
+  // Import command
+  $commands['import-csv'] = array(
+    'description' => 'Import nodes from a CSV file.',
+    'aliases' => array('ic'),
+    'arguments' => array(
+      'filename' => 'The name of the CSV file to import from.',
+    ),
+    'callback' => 'custom_drush_import_csv',
+  );
+
+  return $commands;
+}
+
+/**
+ * Callback for export-csv Drush command.
+ */
+function custom_drush_export_csv($filename) {
+  $file = fopen($filename, 'w');
+
+  // Add header row to CSV file
+  fputcsv($file, array('Node ID', 'Title', 'Created'));
+
+  // Get nodes to export
+  $query = \Drupal::entityQuery('node');
+  $query->condition('status', 1);
+  $nids = $query->execute();
+
+  // Loop through nodes and write to CSV file
+  foreach ($nids as $nid) {
+    $node = \Drupal\node\Entity\Node::load($nid);
+    $row = array(
+      $node->id(),
+      $node->getTitle(),
+      $node->getCreatedTime(),
+    );
+    fputcsv($file, $row);
+  }
+
+  fclose($file);
+
+  drush_print("Nodes exported to CSV file: $filename");
+}
+
+/**
+ * Callback for import-csv Drush command.
+ */
+function custom_drush_import_csv($filename) {
+  $file = fopen($filename, 'r');
+
+  // Skip header row
+  fgetcsv($file);
+
+  // Loop through rows and create nodes
+  while (($row = fgetcsv($file)) !== FALSE) {
+    $node = \Drupal\node\Entity\Node::create([
+      'type' => 'article',
+      'title' => $row[1],
+      'created' => $row[2],
+    ]);
+    $node->save();
+  }
+
+  fclose($file);
+
+  drush_print("Nodes imported from CSV file: $filename");
+}

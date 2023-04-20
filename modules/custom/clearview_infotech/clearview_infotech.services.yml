@@ -1,0 +1,8 @@
+services:
+  get_resource_client_calls:
+    class: Drupal\clearview_infotech\GetResourceClientCalls
+    arguments: ['@http_client', '@config.factory']
+  pod_call:
+    class: Drupal\clearview_infotech\PODcall
+    arguments: ['@http_client', '@config.factory']
+    

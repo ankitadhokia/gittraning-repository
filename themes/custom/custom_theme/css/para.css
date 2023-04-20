@@ -1,0 +1,28 @@
+img{
+    width: 100%;
+    padding-right: var(--bs-gutter-x, .75rem);
+    padding-left: var(--bs-gutter-x, .75rem);
+    margin-right: auto;
+    margin-left: auto;
+    height: 400px;
+    padding-top: var(--bs-gutter-x, .75rem);
+  }
+
+.banner {
+    /* The image used */
+    background-image:
+    url(http://drupal9.ank/sites/default/files/2023-04/slide2_0.jpg);
+    width: 100%;
+    padding-right: var(--bs-gutter-x, .75rem);
+    padding-left: var(--bs-gutter-x, .75rem);
+    margin-right: auto;
+    margin-left: auto;
+    height: 400px;
+    }
+.field--name-field-our-services-subtitle{
+  color: green;
+  font-size: larger;
+  font-weight: bold;
+}
+
+    

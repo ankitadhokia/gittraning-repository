@@ -1,0 +1,44 @@
+<?php
+use Drupal\Core\Database\Database;
+ 
+/**
+ * Implements hook_schema().
+ */
+/*function users_schema(){
+    $schema['my_custom_table'] = [
+        'description' => 'My custom table',
+        'fields' => [
+          'id' => [
+            'type' => 'serial',
+            'description' => 'The primary key of the table.',
+          ],
+          'user_id' => [
+            'type' => 'int',
+            'unsigned' => TRUE,
+            'not null' => TRUE,
+            'description' => 'The user ID of the logged-in user.',
+          ],
+          'node_id' => [
+            'type' => 'int',
+            'unsigned' => TRUE,
+            'not null' => TRUE,
+            'description' => 'The node ID of the viewed page or node.',
+          ],
+          'time' => [
+            'type' => 'int',
+            'unsigned' => TRUE,
+            'not null' => TRUE,
+            'description' => 'The time when the page was viewed.',
+          ],
+        ],
+        'primary key' => ['id'],
+      ];
+}
+
+
+/**
+ * Uninstalls the database schema.
+ */
+/*function users_uninstall() {
+  drupal_uninstall_schema('my_custom_table');
+}

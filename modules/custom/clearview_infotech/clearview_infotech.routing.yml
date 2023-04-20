@@ -1,0 +1,54 @@
+clearview.content:
+  path: '/welcome'
+  defaults:
+    _controller: '\Drupal\clearview_infotech\Controller\ClearviewController::index'
+    _title: 'Create a custom page in drupal 8!'
+  requirements:
+    _permission: 'access content'
+
+clearview.sites_create_form:
+  path: 'sites/create/{arg}'
+  defaults:
+    _form: '\Drupal\clearview_infotech\Form\SiteCreateForm'
+    _title: 'Site Create settings'
+  requirements:
+    _permission: 'access content'
+
+clearview.workspace_create_form:
+  path: 'workspace/create'
+  defaults:
+    _form: '\Drupal\clearview_infotech\Form\WorkspaceForm'
+    _title: 'Workspace Create settings'
+  requirements:
+    _permission: 'access content'
+
+clearview.create_workspace_form:
+  path: 'create/workspace'
+  defaults:
+    _form: '\Drupal\clearview_infotech\Form\CreateWorkspaceForm'
+    _title: 'Workspace Create settings'
+  requirements:
+    _permission: 'access content'
+
+clearview.add_ssh_form:
+  path: 'add/ssh-key'
+  defaults:
+    _form: '\Drupal\clearview_infotech\Form\AddSSHForm'
+    _title: 'Add new SSH key'
+  requirements:
+    _permission: 'access content'
+
+clearview.test:
+  path: '/test'
+  defaults:
+    _controller: '\Drupal\clearview_infotech\Controller\ClearviewController::test'
+    _title: 'Create a custom page in drupal 8!'
+  requirements:
+    _permission: 'access content'
+clearview.CreditPersonsForm2:
+  path: '/CreditPersonsForm/addform'
+  defaults:
+    _title: 'Add CreditPersonsForm'
+    _form: 'Drupal\clearview_infotech\Form\CreditPersonsForm'
+  requirements:
+    _permission: 'access content'

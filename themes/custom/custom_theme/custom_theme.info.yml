@@ -1,0 +1,32 @@
+name: Custom Theme
+type: theme
+base theme: classy
+description: 'Custom Theme for My Website.'
+package: custom
+core: 8.x
+core_version_requirement: ^8 || ^9
+libraries:
+  - custom_theme/global-styling
+
+regions:
+  branding: 'Branding'
+  navigation: 'Main navigation'
+  secondary_menu: 'Secondary menu'
+  main_menu: 'Main menu'
+  search: Search
+  featured: Featured
+  content: Content
+  sidebar_first: 'Sidebar first'
+  sidebar_second: 'Sidebar second'
+  panel_first_1: 'Panel first col 1'
+  panel_second_1: 'Panel second col 1'
+  panel_second_2: 'Panel second col 2'
+  panel_second_3: 'Panel second col 3'
+  panel_second_4: 'Panel second col 4'
+  right_sidebar: Right sidebar
+  footer_first: Footer First
+  footer_second: Footer Second
+  footer_third: Footer Third
+  footer_bottom: Footer Bottom
+  
+

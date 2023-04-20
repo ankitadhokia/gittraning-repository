@@ -1,0 +1,6 @@
+#services:
+# users.logout_check_subscriber:
+#   class: Drupal\users\EventSubscriber\LogoutCheckSubscriber
+#   arguments: ['@session']
+#   tags:
+#     - { name: event_subscriber }

@@ -1,0 +1,54 @@
+<header aria-label="Site header" class="header" id="header" role="banner">
+     {{ page.branding }}
+     {{ page.navigation }}
+     {{ page.search }}
+</header>
+
+<section class="navigation" id="navigation" role="complementary">
+   {{ page.navigation }}
+</section>
+<section class="featured" id="featured" role="complementary">
+   {{ page.featured }}
+</section>
+ {# Sidebar First #}
+      {% if page.sidebar_first %}
+        {% block sidebar_first %}
+          <aside class="col-md-3" role="complementary">
+            {{ page.sidebar_first }}first slider1
+          </aside>
+        {% endblock %}
+      {% endif %}
+  {# Sidebar second #}
+        {% if page.sidebar_second %}
+          {% block sidebar_second %}
+            <div class="col-md-6 annon-content-right">
+              <aside class="full-width" role="complementary">
+                {{ page.sidebar_second }}second silder
+              </aside>
+            </div>
+          {% endblock %}
+        {% endif %}
+        
+<section class="main" id="main">
+   <main aria-label="Site main content" class="content" id="content" role="main">
+     {{ page.content }}page content
+   </main>
+</section>
+<footer aria-label="Site footer" class="footer" id="footer" role="contentinfo">
+<div class="row">
+          <div class="col-md-4">
+            {{ page.footer_first }}
+            <img src="/home/itmagica/web/drupal/themes/custom/barrio_custom_theme/logo.svg" class="img-fluid d-inline-block align-bottom" />
+          </div>
+          </div>
+   <div class="footer--top">
+     {{ page.footer_first }}my first footer
+     {{ page.footer_second }}
+     {{ page.footer_third }}
+   </div>
+   <div class="footer--bottom">
+       {{ page.footer_bottom }}my second footer
+   </div>
+   </footer>
+ 
+

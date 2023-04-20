@@ -1,0 +1,6 @@
+# Place local settings in settings.local.php
+/sites/*/settings.local.php
+/sites/*/services*.yml
+!/sites/*/services.pantheon.*.yml
+!/sites/*/services.yml
+

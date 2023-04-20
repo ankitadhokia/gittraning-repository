@@ -1,0 +1,12 @@
+name: 'Block Background Color'
+type: module
+description: 'Changes the background color of a block.'
+core: 8.x
+core_version_requirement: ^8 || ^9 || ^10
+dependencies:
+  - drupal:block
+
+# Information added by Drupal.org packaging script on 2022-08-08
+version: '8.x-1.2'
+project: 'block_background_color'
+datestamp: 1659985039

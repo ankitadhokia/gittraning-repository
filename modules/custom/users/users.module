@@ -1,0 +1,257 @@
+<?php
+
+use Drupal\Core\Url;
+use \Drupal\Core\Session\AccountProxyInterface;
+use Symfony\Component\HttpFoundation\RedirectResponse;
+use Drupal\Core\Routing\TrustedRedirectResponse;
+use Drupal\Core\Config\ConfigFactoryInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+
+/**
+ * Implements hook_user_login().
+ */
+/*function users_user_login_submit($account) {
+ 
+    $nid = 15; // replace 123 with the ID of the node you want to redirect to
+    $path = \Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid])->toString();
+    $response = new \Symfony\Component\HttpFoundation\RedirectResponse($path);
+    $response->send();
+    return;
+  }*/
+ /*function users_user_login(\Drupal\user\UserInterface $account) {
+    // Check if the user is already logged in
+    $nid = 15;
+    $redirect_url = \Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid])->toString();
+    $response = new \Symfony\Component\HttpFoundation\RedirectResponse($redirect_url);
+    $response->send();
+  }*/
+  /*function users_user_login(\Drupal\user\UserInterface $account) {
+    // Get the current user object.
+    $user = \Drupal\user\Entity\User::load(\Drupal::currentUser()->id());
+
+    // Check if the user has a previous login timestamp.
+    $timestamp = $user->get('created')->value;
+    $last_login = \Drupal\Core\Datetime\DrupalDateTime::createFromTimestamp($timestamp)->format('Y-m-d H:i:s');
+   
+   // $last_login = $user->get('last_login')->value;
+    if ($last_login) {
+      // Redirect the user to node 15.
+      $nid = 15;
+      $url = \Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid ])->toString();
+      $response = new \Symfony\Component\HttpFoundation\RedirectResponse($url);
+      $response->send();
+      return;
+    }
+    
+    // Set the user's last login timestamp.
+    $user->set('changed', time());
+   
+    $user->save();
+  }
+  */
+  /*function users_user_login($account) {
+    $nid = 15;
+    $response = new TrustedRedirectResponse(\Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => $nid])->toString());
+    $response->send();
+    return;
+    return;
+  }
+  /**
+ * Implements hook_init().
+ */
+/*function users_init() {
+  $user = \Drupal::currentUser();
+  if ($user->isAuthenticated() && $user->getLastAccessedTime() > (time() - 60)) {
+    $nid = 15; // Replace 123 with the node ID you want to redirect to.
+    $node = \Drupal\node\Entity\Node::load($nid);
+    $url = $node->toUrl()->toString();
+    $response = new Symfony\Component\HttpFoundation\RedirectResponse($url);
+    $response->send();
+  }
+}*/
+/**
+ * Implements hook_user_login().
+ */
+/*function users_user_login(\Drupal\Core\Session\AccountInterface $account) {
+  // Set the redirect URL to the desired page.
+  $response = new \Symfony\Component\HttpFoundation\RedirectResponse(\Drupal\Core\Url::fromRoute('entity.node.canonical', ['node' => 23])->toString());
+
+  // Set a cookie to automatically log the user back in when they return.
+  $expire = REQUEST_TIME + 86400; // 1 day
+  setcookie('auto_login', $account->id(), $expire, '/', NULL, NULL, TRUE);
+
+  $response->send();
+
+}
+
+/**
+ * Implements hook_user_login_finalize().
+ */
+/*function users_init() {
+
+ // Automatically log the user back in if the auto_login cookie is set.
+ if (isset($_COOKIE['auto_login'])) {
+   $uid = $_COOKIE['auto_login'];
+   $account = \Drupal\user\Entity\User::load($uid);
+   if ($account) {
+     user_login_finalize($account);
+   }
+ }
+}
+*/
+
+
+/*
+function users_install() {
+  // Create the custom table.
+  $schema = [
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'unsigned' => TRUE,
+        'not null' => TRUE,
+      ],
+      'nid' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'uid' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+      'viewed_at' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'default' => 0,
+      ],
+    ],
+    'primary key' => ['id'],
+];
+$schema = Database::getConnection()->schema();
+$schema->createTable('my_custom_table', $schema);
+
+}
+
+
+/**
+ * Implements hook_entity_view() for all entity types.
+ */
+/*
+function users_entity_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  // Check if the user is logged in.
+  $user = \Drupal::currentUser();
+  if ($user->isAuthenticated()) {
+    // Check if the viewed entity is a node or a page.
+    if (in_array($entity->getEntityTypeId(), ['node', 'page'])) {
+      // Get the ID of the viewed entity.
+      $entity_id = $entity->id();
+      // Get the current timestamp.
+      $viewed_at = \Drupal::time()->getRequestTime();
+      // Store the details in the custom table.
+      $data = [
+        'nid' => $entity_id,
+        'uid' => $user->id(),
+        'viewed_at' => $viewed_at,
+      ];
+      $connection = \Drupal\Core\Database\Database::getConnection();
+      $connection->schema()->createTable('my_custom_table', $schema);
+      
+      //$details = $schema->createTable('my_custom_table', $schema)->fields($data)->execute();
+     // dump($details);exit;
+      //\Drupal::database()->insert('my_custom_table')->fields($data)->execute();
+    }
+  }
+}
+
+/**
+ * Implements hook_install().
+ */
+function users_install() {
+  // Create the custom table.
+  $schema['my_custom_table'] = [
+    'description' => 'My custom table',
+    'fields' => [
+      'id' => [
+        'type' => 'serial',
+        'description' => 'The primary key of the table.',
+      ],
+      'user_id' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'description' => 'The ID of the user who viewed the page.',
+      ],
+      'node_id' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'description' => 'The ID of the node viewed by the user.',
+      ],
+      'timestamp' => [
+        'type' => 'int',
+        'not null' => TRUE,
+        'description' => 'The timestamp when the user viewed the page.',
+      ],
+    ],
+    'primary key' => ['id'],
+  ];
+  // Create the table in the database.
+  \Drupal::database()->schema()->createTable('my_custom_table', $schema['my_custom_table']);
+}
+
+ /**
+ * Implements hook_user_login().
+ */
+function users_user_login(\Drupal\user\UserInterface $account) {
+  // Get the current node.
+  $node = \Drupal::routeMatch()->getParameter('node');
+
+  if ($node instanceof \Drupal\node\NodeInterface) {
+    // Get the user ID, node ID, and timestamp.
+    $user_id = $account->id();
+    $node_id = $node->id();
+    $timestamp = time();
+
+    // Insert the data into the custom table.
+    $database = \Drupal::database();
+    $database->insert('my_custom_table')
+      ->fields([
+        'user_id' => $user_id,
+        'node_id' => $node_id,
+        'timestamp' => $timestamp,
+      ])
+      ->execute();
+  }
+}
+
+/**
+ * Implements hook_entity_view().
+ */
+function users_entity_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  // Check if the entity is a node.
+  if ($entity instanceof NodeInterface) {
+    // Get the current user ID.
+    $user_id = \Drupal::currentUser()->id();
+    dump($account);exit;
+    // Get the node ID.
+    $node_id = $entity->id();
+
+    // Get the current timestamp.
+    $timestamp = REQUEST_TIME;
+
+    // Insert the data into the custom table.
+    $fields = [
+      'user_id' => $user_id,
+      'node_id' => $node_id,
+      'timestamp' => $timestamp,
+    ];
+    \Drupal::database()->insert('my_custom_table')
+      ->fields($fields)
+      ->execute();
+  }
+}
+
+  
+  
+

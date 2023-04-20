@@ -1,0 +1,87 @@
+<?php
+
+/**
+ * @file
+ * Enhanced control over the Background Color of any Block.
+ *
+ * Block Background Color allows users to set background color to
+ * any block through the block's configuration interface.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+
+/**
+ * Implements hook_permission().
+ */
+function block_background_color_permission() {
+  return [
+    'administer block background color' => [
+      'title' => t('Administer block background color'),
+      'description' => t('Set background color for blocks.'),
+    ],
+  ];
+}
+
+/**
+ * Implements theme_preprocess_block().
+ */
+function block_background_color_preprocess_block(&$vars) {
+  $block_id = $vars['elements']['#id'];
+  $config = \Drupal::config('block_background_color.settings');
+  $bbc_data = $config->get('color');
+  if (!empty($bbc_data) && isset($bbc_data[$block_id])) {
+    $css = '#block-' . str_replace('_', '-', $block_id) . ' { background-color: ' . $bbc_data[$block_id] . ' !important; }';
+    $vars['#attached']['html_head'][] = [
+      [
+        '#tag' => 'style',
+        '#value' => $css,
+      ],
+      $block_id . '-block-css',
+    ];
+  }
+}
+
+/**
+ * Implements hook_form_alter().
+ */
+function block_background_color_form_alter(&$form, FormStateInterface $form_state, $form_id) {
+  if (\Drupal::currentUser()
+    ->hasPermission('administer blocks') && ($form_id == 'block_form' || $form_id == 'block_content_basic_edit_form')) {
+    $block_id = $form_state->getBuildInfo()['callback_object']->getEntity()
+      ->id();
+    $config = \Drupal::config('block_background_color.settings');
+    $bbc_data = $config->get('color');
+    $bbc = $bbc_data[$block_id] ?? '';
+    $form['block_background_color'] = [
+      '#type' => 'textfield',
+      '#title' => t('Choose Background Color'),
+      '#default_value' => !empty($bbc) ? $bbc : '',
+      '#attributes' => [
+        'class' => ['basic-color-palette'],
+      ],
+    ];
+    $form['block_background_color']['#attached']['library'][] = 'block_background_color/main';
+    $form['actions']['submit']['#submit'][] = 'block_background_color_form_submit';
+  }
+}
+
+/**
+ * Helper function: additional submit callback for block configuration pages.
+ */
+function block_background_color_form_submit($form, FormStateInterface $form_state) {
+  $values = $form_state->getValues();
+  $block_id = $values['id'];
+  if (isset($values['block_background_color'])) {
+    $bbc_color = $values['block_background_color'];
+    $config = \Drupal::service('config.factory')
+      ->getEditable('block_background_color.settings');
+    $bbc_data = $config->get('color', []);
+    if (!empty($bbc_color)) {
+      $bbc_data[$block_id] = $bbc_color;
+    }
+    elseif (isset($bbc_data[$block_id])) {
+      unset($bbc_data[$block_id]);
+    }
+    $config->set('color', $bbc_data)->save();
+  }
+}

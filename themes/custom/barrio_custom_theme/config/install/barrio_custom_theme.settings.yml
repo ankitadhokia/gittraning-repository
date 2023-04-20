@@ -1,0 +1,49 @@
+# Library.
+# ----------------------------
+barrio_custom_theme_library: 'production'
+# Layout.
+# ----------------------------
+barrio_custom_theme_sidebar_position: 'both'
+barrio_custom_theme_content_offset: 0
+barrio_custom_theme_sidebar_first_width: 4
+barrio_custom_theme_sidebar_first_offset: 0
+barrio_custom_theme_sidebar_second_width: 3
+barrio_custom_theme_sidebar_second_offset: 0
+
+# Container.
+# ----------------------------
+barrio_custom_theme_fluid_container: 0
+
+# Buttons.
+# ----------------------------
+barrio_custom_theme_button: 1
+barrio_custom_theme_button_size: ''
+barrio_custom_theme_button_outline: 0
+
+# Navbar.
+# ----------------------------
+barrio_custom_theme_navbar_toggle: 'navbar-toggleable-lg'
+barrio_custom_theme_navbar_container: 'navbar-toggleable-md'
+barrio_custom_theme_navbar_top_position: ''
+barrio_custom_theme_navbar_top_color: 'navbar-dark'
+barrio_custom_theme_navbar_top_background: 'bg-secondary'
+barrio_custom_theme_navbar_position: ''
+barrio_custom_theme_navbar_color: 'navbar-dark'
+barrio_custom_theme_navbar_background: 'bg-primary'
+
+# Messages.
+# ----------------------------
+barrio_custom_theme_messages_widget: 'toasts'
+
+# Colors.
+# ----------------------------
+barrio_custom_theme_system_messages: 'messages_white'
+
+# Tables.
+# ----------------------------
+barrio_custom_theme_table_hover: 1
+barrio_custom_theme_table_style: 'table-striped'
+
+# Icons.
+# ----------------------------
+barrio_custom_theme_bootstrap_icons: 1

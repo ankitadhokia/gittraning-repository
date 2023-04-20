@@ -1,0 +1,10 @@
+global-styling:
+  version: 1.x
+  css:
+    theme:
+      css/custom.css: {}
+      css/menu.css: {}
+      css/para.css: {}
+      css/service.css: {}
+  js:
+    js/image-animation.js: {}
